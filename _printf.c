@@ -1,50 +1,49 @@
 #include "main.h"
+
 /**
- * _printf - prints formatted output
- * @format: input string
+ * _printf - prints a sequence of characters
+ * depending on a certain format
+ * @format: format specifier
  *
  * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, len = 0, ibuf = 0;
-	va_list args;
-	int (*function)(va_list, char *, unsigned int);
-	char *buffer;
+	int (*pfunc)(va_list, flags_t *);
+	const char *p;
+	va_list arguments;
+	flags_t flags = {0, 0, 0};
 
-	va_start(args, format), buffer = malloc(sizeof(char) * 1024);
-	if (!format || !buffer || (format[i] == '%' && !format[i + 1]))
+	register int count = 0;
+
+	va_start(arguments, format);
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-	if (!format[i])
-		return (0);
-	for (i = 0; format && format[i]; i++)
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	p = format;
+	while (*p)
 	{
-		if (format[i + 1] == '\0')
+		if (*p == '%')
 		{
-			print_buff(buffer, ibuf), free(buffer), va_end(arguments);
-			return (-1);
+			p++;
+			if (*p == '%')
+			{
+				count += _putchar('%');
+				continue;
+			}
+			while (get_flag(*p, &flags))
+				p++;
+			pfunc = get_print(*p);
+			count += (pfunc)
+				? pfunc(arguments, &flags)
+				: _printf("%%%c", *p);
 		}
 		else
-		{
-			function = get_print_func(format, i + 1);
-			if (function == NULL)
-			{
-				if (format[i + 1] == ' ' && !format[i + 2])
-					return (-1);
-				handl_buf(buffer, format[i], ibuf), len++, i--;
-			}
-			else
-			{
-				len += function(arguments, buffer, ibuf);
-				i += ev_print_func(format, i + 1);
-			}
-			i++;
-		}
-		else
-			handl_buf(buffer, format[i], ibuf), len++;
-		for (ibuf = len; ibuf > 1024; ibuf -= 1024)
-			;
-		print_buf(buffer, ibuf), free(buffer), va_end(args);
-		return (len);
+			count += _putchar(*p);
+		p++;
 	}
+	_putchar(-1);
+	va_end(arguments);
+	return (count);
 }

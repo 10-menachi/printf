@@ -1,30 +1,28 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "stdio.h"
-#include "unistd.h"
+#include "stdlib.h"
 #include "stdarg.h"
 
 /**
- * struct print - struct for print functions
- * @type_arg: identifier
- * @f: pointer to printer functions
+ * struct flags - contains flags for flag
+ * specifiers
  *
- * Description: stores pointers to print functions
+ * @plus: flag for '+'
+ * @space: flag for ' '
+ * @hash: flag for '#'
+ *
  */
-
-typedef struct print
+typedef struct flags
 {
-	char *type_arg;
-	int (*f)(va_list, char *, unsigned int)
-} print_t;
+	int plus;
+	int space;
+	int hash;
+} flags_t;
 
 int _putchar(int ch);
-int _printf(const char *format, ...);
-int print_buf(char *buf, unsigned int nbuf);
-int (*get_print_func(const char *s, int index))(va_list, char*, unsigned int);
-unsigned int handl_buf(char *buf, char c, unsigned int ibuf);
-int ev_print_func(const char *s, int index);
+int get_flag(char s, flags_t *f);
+int (*get_print(char s))(va_list, flags_t *);
 
 
 #endif
