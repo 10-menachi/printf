@@ -3,26 +3,14 @@
 
 #include "stdlib.h"
 #include "stdarg.h"
+#include "unistd.h"
 
-/**
- * struct flags - contains flags for flag
- * specifiers
- *
- * @plus: flag for '+'
- * @space: flag for ' '
- * @hash: flag for '#'
- *
- */
-typedef struct flags
-{
-	int plus;
-	int space;
-	int hash;
-} flags_t;
+#define BUFF_SIZE 1024
 
-int _putchar(int ch);
-int get_flag(char s, flags_t *f);
-int (*get_print(char s))(va_list, flags_t *);
-
-
+int get_flags(const char *format, int *i);
+int get_width(const char *format, int *i, va_list list);
+int get_precision(const char *format, int *i, va_list list);
+int get_size(const char *format, int *i);
+int handle_print(const char *format, int *i,
+		va_list list, char buffer[], int flags, int width, int precision, int size);
 #endif
