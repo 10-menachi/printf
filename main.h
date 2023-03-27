@@ -14,5 +14,6 @@ int print_string(va_list args);
 int print_int(va_list args);
 int print_argument(char specifier, va_list args);
 int print_binary(va_list args);
+int print_pointer(va_list args);
 
 #endif
