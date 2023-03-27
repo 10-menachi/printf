@@ -6,6 +6,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
+#include <ctype.h>
 
 int _putchar(int ch);
 int _printf(const char *format, ...);
