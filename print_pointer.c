@@ -12,7 +12,7 @@ int print_pointer(va_list args)
 	void *p = va_arg(args, void *);
 	char buff[20];
 
-	sprintf(buff, "%p", ptr);
+	sprintf(buff, "%p", p);
 	write(1, buff, strlen(buff));
 	return (strlen(buff));
 }
