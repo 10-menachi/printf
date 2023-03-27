@@ -14,5 +14,5 @@ int print_pointer(va_list args)
 
 	sprintf(buff, "%p", ptr);
 	write(1, buff, strlen(buff));
-	return (strlen(buff);
+	return (strlen(buff));
 }
