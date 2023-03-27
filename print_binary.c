@@ -12,6 +12,7 @@ int print_binary(va_list args)
 	int num = va_arg(args, int);
 	int binary[32];
 	int j, i = 0;
+	char c;
 
 	do {
 		binary[i++] = num % 2;
@@ -19,6 +20,9 @@ int print_binary(va_list args)
 	} while (num > 0);
 
 	for (j = i - 1; j >= 0; j--)
-		putchar(binary[j] + '0');
+	{
+		c = binary[j] + '0';
+		write(1, &c, i);
+	}
 	return (i);
 }
