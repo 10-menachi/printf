@@ -22,7 +22,7 @@ int print_binary(va_list args)
 	for (j = i - 1; j >= 0; j--)
 	{
 		c = binary[j] + '0';
-		write(1, &c, i);
+		write(1, &c, 1);
 	}
 	return (i);
 }
