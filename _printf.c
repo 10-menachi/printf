@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			write(1, &format[i], 1);
+			putchar(format[i]);
 			count++;
 		}
 	}
@@ -51,7 +51,7 @@ int print_argument(char specifier, va_list args)
 		case 'i':
 			return (print_int(args));
 		case '%':
-			write(1, "%", 1);
+			putchar("%");
 			return (1);
 		case 'b':
 			return (print_binary(args));
@@ -72,7 +72,7 @@ int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 
-	write(1, &c, 1);
+	putchar(c);
 	return (1);
 }
 
@@ -89,11 +89,11 @@ int print_string(va_list args)
 
 	if (s == NULL)
 	{
-		write(1, "(null)", 6);
+		puts("(null)");
 		return (6);
 	}
 
-	write(1, s, strlen(s));
+	puts(s);
 	return (strlen(s));
 }
 
@@ -110,6 +110,6 @@ int print_int(va_list args)
 	char str[20];
 
 	sprintf(str, "%d", num);
-	write(1, str, strlen(str));
+	puts(str);
 	return (strlen(str));
 }
