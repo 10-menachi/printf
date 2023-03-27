@@ -62,6 +62,8 @@ int print_argument(char specifier, va_list args)
 			return (print_pointer(args));
 		case 'u':
 			return (print_unsigned(args));
+		case 'o':
+			return (print_octal(args));
 		default:
 			fprintf(stderr, "Invalid conversion specifier: %%%c\n", specifier);
 			return (0);
