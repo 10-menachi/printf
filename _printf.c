@@ -58,6 +58,8 @@ int print_argument(char specifier, va_list args)
 			return (1);
 		case 'b':
 			return (print_binary(args));
+		case 'p':
+			return (print_pointer(args));
 		default:
 			fprintf(stderr, "Invalid conversion specifier: %%%c\n", specifier);
 			return (0);
