@@ -11,9 +11,9 @@
 
 int print_hex(va_list args, int is_uppercase)
 {
-	unsigned int n = va_arg(args, unsigned int);
+	int n = va_arg(args, int);
 	char hex[] = "0123456789abcdef";
-	char s[20];
+	char *s = NULL;
 	int i, j, d;
 	char c;
 
@@ -21,6 +21,16 @@ int print_hex(va_list args, int is_uppercase)
 	{
 		write(1, "0", 1);
 		return (1);
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	s = (char *)malloc(sizeof(char) * 32);
+	if (s == NULL)
+	{
+		return (0);
 	}
 	i = 0;
 	while (n > 0)
@@ -37,5 +47,7 @@ int print_hex(va_list args, int is_uppercase)
 			c = toupper(c);
 		write(1, &c, 1);
 	}
+	free(s);
 	return (i);
 }
+
