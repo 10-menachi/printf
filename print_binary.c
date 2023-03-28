@@ -1,39 +1,34 @@
 #include "main.h"
-
 /**
 * print_binary - prints a binary number.
 * @args: arguments.
-* Return: 1.
+* Return: count
 */
 int print_binary(va_list args)
 {
-	int num = va_arg(args, int);
-	int negative = 0;
-	int binary[32];
-	int j, i = 0;
-	char c;
+	unsigned int n, m, i, sum;
+	unsigned int a[32];
+	int count;
 
-	if (num < 0)
+	n = va_arg(args, unsigned int);
+	m = 2147483648;
+	a[0] = n / m;
+	for (i = 1; i < 32; i++)
 	{
-	negative = 1;
-	num = ~num + 1;
+		m /= 2;
+		a[i] = (n / m) % 2;
 	}
-
-	do {
-	binary[i++] = num % 2;
-	num /= 2;
-	} while (num > 0);
-
-	if (negative)
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
 	{
-	binary[i++] = 1;
-	}
+		sum += a[i];
+		if (sum || i == 31)
+		{
+			char z = '0' + a[i];
 
-	for (j = i - 1; j >= 0; j--)
-	{
-	c = binary[j] + '0';
-	write(1, &c, 1);
+			write(1, &z, 1);
+			count++;
+		}
 	}
-
-	return (i);
+	return (count);
 }
+
