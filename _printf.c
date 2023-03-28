@@ -72,7 +72,6 @@ int print_argument(char specifier, va_list args)
 			write(1, "%r", 2);
 			return (1);
 		default:
-			fprintf(stderr, "Invalid conversion specifier: %%%c\n", specifier);
 			return (0);
 	}
 }
