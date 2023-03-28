@@ -50,6 +50,8 @@ int print_argument(char specifier, va_list args)
 			return (print_char(args));
 		case 's':
 			return (print_string(args));
+		case 'S':
+			return (printf_String(args));
 		case 'd':
 		case 'i':
 			return (print_int(args));
