@@ -85,10 +85,7 @@ int print_argument(char specifier, va_list args)
 
 int print_char(va_list args)
 {
-	char c = (char) va_arg(args, int);
-
-	if (sizeof(c) != sizeof(va_arg(args, int)))
-		return (-1);
+	char c = va_arg(args, int);
 
 	write(1, &c, 1);
 	return (1);
