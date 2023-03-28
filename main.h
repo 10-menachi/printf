@@ -34,4 +34,7 @@ unsigned long int print_lu(va_list args);
 unsigned short int print_hu(va_list args);
 int printf_String(va_list args);
 int print_hex(va_list args, int is_uppercase);
+int get_width(const char *format, int *i, va_list list);
+int get_precision(const char *format, int *i, va_list list);
+int get_size(const char *format, int *i);
 #endif
