@@ -72,7 +72,7 @@ int print_argument(char specifier, va_list args)
 			return (print_hex(args, 1));
 		case 'r':
 			write(1, "%r", 2);
-			return (1);
+			return (print_reverse(args));
 		default:
 			return (0);
 	}
