@@ -2,7 +2,8 @@
 /**
  * printrot13string - Print a string in rot13.
  * @args: arguments
- * return: number of chars 
+ *
+ * Return: number of chars
  */
 
 int printrot13string(va_list args)

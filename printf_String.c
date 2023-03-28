@@ -10,6 +10,7 @@ int printf_String(va_list args)
 	int i, len = 0;
 	int cast;
 	char hex[3];
+
 	s = va_arg(args, char *);
 		if (s == NULL)
 		s = "(null)";
