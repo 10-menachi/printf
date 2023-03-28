@@ -35,7 +35,7 @@ int print_hex(va_list args, int is_uppercase)
 		c = s[j];
 		if (is_uppercase)
 			c = toupper(c);
+		write(1, &c, 1);
 	}
-	write(1, &c, 1);
 	return (i);
 }

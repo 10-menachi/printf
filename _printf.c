@@ -68,8 +68,10 @@ int print_argument(char specifier, va_list args)
 			return (print_hex(args, 0));
 		case 'X':
 			return (print_hex(args, 1));
+		case 'r':
+			write(1, "%r", 2);
+			return (1);
 		default:
-			fprintf(stderr, "Invalid conversion specifier: %%%c\n", specifier);
 			return (0);
 	}
 }
