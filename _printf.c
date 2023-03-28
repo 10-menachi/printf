@@ -50,6 +50,8 @@ int print_argument(char specifier, va_list args)
 			return (print_char(args));
 		case 's':
 			return (print_string(args));
+		case 'S':
+			return (print_String(args));
 		case 'd':
 		case 'i':
 			return (print_int(args));
@@ -91,6 +93,24 @@ int print_char(va_list args)
 	return (1);
 }
 
+
+/**
+ * print_int - prints an integer
+ * @args: arguments list
+ *
+ * Return: number of characters printed
+ */
+
+int print_int(va_list args)
+{
+	int num = va_arg(args, int);
+	char str[20];
+
+	sprintf(str, "%d", num);
+	write(1, str, strlen(str));
+	return (strlen(str));
+}
+
 /**
  * print_string - prints a string
  * @args: arguments list
@@ -110,21 +130,4 @@ int print_string(va_list args)
 
 	write(1, s, strlen(s));
 	return (strlen(s));
-}
-
-/**
- * print_int - prints an integer
- * @args: arguments list
- *
- * Return: number of characters printed
- */
-
-int print_int(va_list args)
-{
-	int num = va_arg(args, int);
-	char str[20];
-
-	sprintf(str, "%d", num);
-	write(1, str, strlen(str));
-	return (strlen(str));
 }

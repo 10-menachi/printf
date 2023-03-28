@@ -9,7 +9,7 @@
 
 int print_octal(va_list args)
 {
-	unsigned int n = va_arg(args, unsigned int);
+	unsigned long int n = va_arg(args, unsigned long int);
 	char s[20];
 
 	sprintf(s, "%lo", n);
