@@ -11,7 +11,6 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list args);
-int print_String(va_list args);
 int print_string(va_list args);
 int print_int(va_list args);
 int print_argument(char specifier, va_list args);
@@ -20,6 +19,4 @@ int print_pointer(va_list args);
 int print_unsigned_int(va_list args);
 int print_octal(va_list args);
 int print_hex(va_list args, int is_uppercase);
-int print_HEX(unsigned int num);
-int print_srev(va_list args);
 #endif
