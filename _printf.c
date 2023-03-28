@@ -72,6 +72,8 @@ int print_argument(char specifier, va_list args)
 			return (print_hex(args, 1));
 		case 'r':
 			return (print_reverse(args));
+		case 'R':
+			return (printrot13string(args));
 		default:
 			return (0);
 	}

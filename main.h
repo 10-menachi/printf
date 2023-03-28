@@ -16,6 +16,7 @@ int print_int(va_list args);
 int print_argument(char specifier, va_list args);
 int print_reverse(va_list args);
 int print_binary(va_list args);
+int printrot13string(va_list args);
 int print_pointer(va_list args);
 int print_unsigned_int(va_list args);
 int print_octal(va_list args);
