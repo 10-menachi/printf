@@ -9,15 +9,10 @@
 
 int print_octal(va_list args)
 {
-	unsigned long int n = va_arg(args, unsigned long int);
-	char s[30];
+	uintmax_t n = va_arg(args, uintmax_t);
+	char s[25];
 
-	if (n > ULLONG_MAX)
-	{
-		return (-1);
-	}
-
-	sprintf(s, "%lo", n);
+	sprintf(s, "%" PRIoMAX, n);
 	write(1, s, strlen(s));
 	return (strlen(s));
 }

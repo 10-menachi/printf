@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <limits.h>
+#include <stdint.h>
+#include <inttypes.h>
 
 #define BUFF_SIZE 1024
 
