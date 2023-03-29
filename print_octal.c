@@ -9,10 +9,10 @@
 
 int print_octal(va_list args)
 {
-	uintmax_t n = va_arg(args, uintmax_t);
-	char s[25];
+	unsigned long int n = va_arg(args, unsigned long int);
+	char s[23];
 
-	sprintf(s, "%" PRIoMAX, n);
+	sprintf(s, "%li", n);
 	write(1, s, strlen(s));
 	return (strlen(s));
 }
