@@ -7,6 +7,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <limits.h>
 
 #define BUFF_SIZE 1024
 
