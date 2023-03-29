@@ -2,13 +2,9 @@
 #include <stdio.h>
 #include "main.h"
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
 int main(void)
 {
+<<<<<<< HEAD
     int len;
     int len2;
     unsigned int ui;
@@ -41,4 +37,8 @@ int main(void)
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
     return (0);
+=======
+	_printf("%");
+	return (0);
+>>>>>>> cd9df6745cad28f5051919661a92ad30c780d5c4
 }
